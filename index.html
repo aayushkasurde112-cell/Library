@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Library book records and registration portal">
+  <title>Library Management | TCET</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="home">
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="TCET Library home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span><strong>TCET</strong><small>Library Portal</small></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home">Overview</a>
+        <a class="nav-link" href="#books">Books</a>
+        <a class="nav-link" href="#add-book">Add a book</a>
+      </nav>
+      <span class="term-label">Library Management System</span>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="welcome" aria-labelledby="welcome-title">
+      <div>
+        <p class="eyebrow">THAKUR COLLEGE OF ENGINEERING &amp; TECHNOLOGY</p>
+        <h1 id="welcome-title">Library collection</h1>
+        <p class="welcome-copy">Keep your library catalogue organized and up to date.</p>
+      </div>
+      <a class="button button-primary" href="#add-book"><span aria-hidden="true">＋</span> Add book</a>
+    </section>
+
+    <section class="stats" aria-label="Library summary">
+      <article class="stat-card"><span class="stat-icon blue" aria-hidden="true">▤</span><div><p class="stat-label">Books in catalogue</p><p class="stat-value">03</p></div></article>
+      <article class="stat-card"><span class="stat-icon green" aria-hidden="true">✓</span><div><p class="stat-label">Available</p><p class="stat-value">02</p></div></article>
+      <article class="stat-card"><span class="stat-icon violet" aria-hidden="true">↗</span><div><p class="stat-label">Checked out</p><p class="stat-value">01</p></div></article>
+    </section>
+
+    <section class="panel books-panel" id="books" aria-labelledby="books-title">
+      <div class="panel-heading">
+        <div><p class="eyebrow">CATALOGUE</p><h2 id="books-title">Library books</h2><p class="panel-description">Browse the books currently listed in the collection.</p></div>
+        <span class="count-badge">3 books</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Book ID</th><th scope="col">Title</th><th scope="col">Author</th><th scope="col">Category</th><th scope="col">Status</th><th scope="col">Actions</th></tr></thead>
+          <tbody id="bookTable">
+            <tr>
+              <td class="record-id">B-101</td><td><span class="book-cover cover-blue" aria-hidden="true">01</span><span class="record-name">Clean Code</span></td><td class="muted-cell">Robert C. Martin</td><td><span class="category-tag">Programming</span></td><td><span class="status available"><span></span>Available</span></td>
+              <td><div class="row-actions"><button class="icon-button edit" type="button" aria-label="Update Clean Code record" title="Update">✎</button><button class="icon-button delete" type="button" aria-label="Delete Clean Code record" title="Delete">⌫</button></div></td>
+            </tr>
+            <tr>
+              <td class="record-id">B-102</td><td><span class="book-cover cover-gold" aria-hidden="true">02</span><span class="record-name">The Pragmatic Programmer</span></td><td class="muted-cell">Andrew Hunt</td><td><span class="category-tag software">Software</span></td><td><span class="status checked-out"><span></span>Checked out</span></td>
+              <td><div class="row-actions"><button class="icon-button edit" type="button" aria-label="Update The Pragmatic Programmer record" title="Update">✎</button><button class="icon-button delete" type="button" aria-label="Delete The Pragmatic Programmer record" title="Delete">⌫</button></div></td>
+            </tr>
+            <tr>
+              <td class="record-id">B-103</td><td><span class="book-cover cover-rose" aria-hidden="true">03</span><span class="record-name">Introduction to Algorithms</span></td><td class="muted-cell">Thomas H. Cormen</td><td><span class="category-tag algorithms">Algorithms</span></td><td><span class="status available"><span></span>Available</span></td>
+              <td><div class="row-actions"><button class="icon-button edit" type="button" aria-label="Update Introduction to Algorithms record" title="Update">✎</button><button class="icon-button delete" type="button" aria-label="Delete Introduction to Algorithms record" title="Delete">⌫</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Showing 3 sample records</p>
+    </section>
+
+    <section class="panel registration-panel" id="add-book" aria-labelledby="add-book-title">
+      <div class="panel-heading">
+        <div><p class="eyebrow">NEW RECORD</p><h2 id="add-book-title">Add a book</h2><p class="panel-description">Enter the book details to prepare a new catalogue record.</p></div>
+      </div>
+      <form id="bookForm">
+        <div class="form-grid">
+          <div class="field"><label for="book-title">Book title</label><input type="text" id="book-title" name="title" placeholder="e.g. The Design of Everyday Things" required></div>
+          <div class="field"><label for="author">Author</label><input type="text" id="author" name="author" placeholder="e.g. Don Norman" required></div>
+          <div class="field"><label for="category">Category</label><select id="category" name="category" required><option value="" selected disabled>Select a category</option><option>Programming</option><option>Software</option><option>Algorithms</option><option>Networking</option><option>Other</option></select></div>
+          <div class="field"><label for="book-status">Availability</label><select id="book-status" name="status" required><option value="" selected disabled>Select availability</option><option>Available</option><option>Checked out</option></select></div>
+        </div>
+        <div class="form-footer"><p class="form-hint"><span aria-hidden="true">ⓘ</span> All fields are required.</p><button class="button button-primary" type="button"><span aria-hidden="true">＋</span> Add book to catalogue</button></div>
+      </form>
+    </section>
+  <footer class="footer"><span>TCET Library Portal</span><span>Library Management System</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
